@@ -57,20 +57,27 @@ body {
 
 .poll-question {
 	margin-left : 10em;
+	margin-bottom : 1em;
 }
 
 .chat-window {
-	background-color : #ddc;
+	border-left-style : outset;
+	padding-left : 0.5em;
 	margin : auto;
 	height : 100%;
 }
 
 .chat-username {
 	margin-right : 10px;
+	color : #ddc;
 }
 
 .chat-text {
 
+}
+
+.chat-comment {
+	font-family : 'Flamenco', cursive;
 }
 
 #poll-options {
