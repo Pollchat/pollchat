@@ -76,6 +76,10 @@ li.response {
 }
 
 li.response:hover {
-	background-color : aqua;
+	background-color : #cdc;
 	border-radius: 6px;
+}
+
+.poll {
+	padding-left: 10em;
 }
