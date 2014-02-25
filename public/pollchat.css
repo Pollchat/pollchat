@@ -127,6 +127,7 @@ li.response:hover {
 .recent-polls {
 	float : right;
 	width : 50%;
+	margin-top : 5%;
 }
 
 .poll-input {
@@ -193,4 +194,13 @@ a.main-page-link {
 a.main-page-link:hover {
 	border-radius: 6px;
 	text-decoration: underline;
+}
+
+.login-header {
+	padding-left : 2.5em;
+	float : left;
+}
+
+.login-body {
+	margin-top : 8em;
 }
