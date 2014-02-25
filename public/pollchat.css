@@ -10,6 +10,8 @@ body {
 
 .hero-unit {
 	margin-top : 3em;
+	background: rgb(243, 243, 243);
+	padding: 1em;
 }
 
 .btn {
@@ -27,10 +29,18 @@ body {
 	font-size : 3.5em;
 }
 
+.subtitle {
+	color : rgb(119, 138, 138);
+	font-size : 1.5em;
+}
+
 .data-entry {
 	display : block;
-	width : 20em;
+	width : 25em;
 	margin-bottom : 1em;
+	height : 2em;
+	border-radius : 1px;
+	padding-left : 1em;
 }
 
 .data-box {
@@ -109,7 +119,6 @@ li.response:hover {
 
 .recent-polls {
 	float : right;
-	padding-top : 5em;
 	width : 50%;
 }
 
@@ -120,7 +129,8 @@ li.response:hover {
 	width : 40%;
 }
 
-.top-poll-question {
+.top-poll-question,
+.top-poll-answer {
 	display : inline;
 }
 
@@ -132,16 +142,20 @@ li.response:hover {
 	margin-right : 1em;
 	padding-left : 1em;
 	padding-top : 1em;
-	border-radius : 10em;
+	border-radius : 10px;
 }
 
 .question-entry {
 	margin-bottom : 2.5em;
 	width : 30em;
+	height : 5em;
+	border-radius : none;
+	max-width : 34.25em;
+	max-height : 15em;
 }
 
 .poll-answers {
-	margin-left : 4.5em;
+	margin-left : 2em;
 }
 
 .prose {
