@@ -12,6 +12,7 @@ body {
 	margin-top : 3em;
 	background: rgb(243, 243, 243);
 	padding: 1em;
+	padding-bottom : 2.5em;
 }
 
 .btn {
@@ -19,7 +20,13 @@ body {
 }
 
 .btn-submit {
+	cursor: pointer;
+	border-radius: 5px;
+	padding: 5px 15px;
+}
 
+.btn-create {
+	float : right;
 }
 
 .page-title {
@@ -176,4 +183,14 @@ a.link {
 	display: block;
 	padding-bottom: 0.5em;
 	color : #daa;
+}
+
+a.main-page-link {
+	font-size: larger;
+	text-decoration: none;
+}
+
+a.main-page-link:hover {
+	border-radius: 6px;
+	text-decoration: underline;
 }
