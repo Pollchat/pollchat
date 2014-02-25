@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<head>
+<title>Pollchat - Realtime polling in a flash</title>
+<script type="application/json" src="main.js" ></script>
+<link href="pollchat.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div id="left-side" class="sidebar-left">	
+		<h1 id="title" class="page-title">Pollchat</h1>
+		<div id="hero" class="hero-unit">
+			<div id="poll-question" class="poll-question">
+				<span class="text-super">What is the name of the current James Bond?</span>
+			</div>
+			<div id="poll-options">
+				<ul class="poll-options">
+					<li class="response">Pierce Brosnan</li>
+					<li class="response">Timothy Dalton</li>
+					<li class="response">Sean Connery</li>
+					<li class="response">Daniel Craig</li>
+				</ul>
+			</div>
+			<div id="poll-results" class="poll">
+			</div>
+		</div>
+	</div>
+	<div id="secondary" class="sidebar-right">
+		<div id="chat" class="chat-window">
+			<div class="chat-comment"><span class="chat-username">Bob :</span><span class="chat-text">I can never remember if this is Pierce or not!</span></div>
+			<div class="chat-comment"><span class="chat-username">Mary :</span><span class="chat-text">I think it's Daniel</span></div>
+			<div class="chat-comment"><span class="chat-username">Anne :</span><span class="chat-text">It's definitely not Pierce.</span></div>
+		</div>
+	</div>
+</body>
+</html>

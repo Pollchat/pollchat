@@ -1,0 +1,81 @@
+body {
+	display : inline;
+}
+
+.hero-unit {
+	font-family : sans-serif;
+	margin-top : 3em;
+}
+
+.btn {
+
+}
+
+.btn-submit {
+
+}
+
+.page-title {
+	font-family : sans-serif;
+	margin-left : 1em;
+	color : rgb(123, 250, 154);
+}
+
+.data-entry {
+	display : block;
+}
+
+.data-box {
+	display: block;
+}
+
+.text-super {
+	font-size: x-large;
+}
+
+.sidebar-left {
+	display : inline;
+	float : left;
+	width : 63%;
+	padding-left : 2.5em;
+}
+
+.sidebar-right {
+	float : right;
+	width : 30%;
+	margin-top : 5em;
+}
+
+.poll-question {
+	margin-left : 10em;
+}
+
+.chat-window {
+	color : darkkhaki;
+}
+
+.chat-username {
+	margin-right : 10px;
+}
+
+#poll-options {
+	list-style-type : none;
+	padding : 0;
+	margin-left : 0;
+	display : inline;
+}
+
+.poll-options {
+	list-style-type : none;
+	margin-left : 3em;
+}
+
+li.response {
+	display : inline;
+	padding : 1em;
+}
+
+li.response:hover {
+	background-color : aqua;
+	border-radius: 6px;
+}
