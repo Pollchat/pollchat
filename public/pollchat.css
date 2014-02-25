@@ -1,5 +1,10 @@
+html {
+	height : 100%;
+}
+
 body {
 	display : inline;
+	height : 1005;
 }
 
 .hero-unit {
@@ -46,6 +51,7 @@ body {
 	float : right;
 	width : 30%;
 	margin-top : 5em;
+	height : 100%;
 }
 
 .poll-question {
@@ -53,11 +59,17 @@ body {
 }
 
 .chat-window {
-	color : darkkhaki;
+	background-color : #ddc;
+	margin : auto;
+	height : 100%;
 }
 
 .chat-username {
 	margin-right : 10px;
+}
+
+.chat-text {
+
 }
 
 #poll-options {
@@ -70,6 +82,7 @@ body {
 .poll-options {
 	list-style-type : none;
 	margin-left : 3em;
+	margin-bottom : 3em;
 }
 
 li.response {
@@ -86,6 +99,7 @@ li.response:hover {
 	padding-left: 10em;
 }
 
+<<<<<<< Updated upstream
 .recent-polls {
 	float : right;
 	padding-top : 5em;
@@ -121,4 +135,7 @@ li.response:hover {
 
 .poll-answers {
 	margin-left : 4.5em;
+
+·prose {
+	font-family: 'Fanwood Text', serif;
 }
