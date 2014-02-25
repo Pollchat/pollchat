@@ -4,24 +4,28 @@
 <script type="application/json" src="main.js" ></script>
 <link href="pollchat.css" rel="stylesheet" type="text/css">
 <link href='http://fonts.googleapis.com/css?family=Fanwood+Text' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Oregano' rel='stylesheet' type='text/css'>
 </head>
 <body>
 	<div id="left-side" class="sidebar-left">	
 		<h1 id="title" class="page-title">Pollchat</h1>
 		<div id="hero" class="hero-unit">
 			<p class="prose">
-				We aim to have a system that will allow users to log in via an Oauth provider (likely Google/Facebook) and create and participate in votes with other users.
+				We aim to have a system that will allow users to log in via an Oauth provider (likely Google/Facebook) to create and participate in polls with other users.
 				This will be accomplished by the user of websockets connecting to a Go web server. We will process the new question and then give the user a link to share
 				with their friends in order to participate in the voting. Alongside the voting we aim to implement a simple chat window that is linked to the vote in order
 				for people to let others know they have completed it etc.
 			</p>
+			<p class="prose declaration">
+				Created by Tom Townsend & Laura McCormack
+			</p>
 		</div>
 	</div>
 	<div id="secondary" class="sidebar-right">
-		<div class="link" id="links">
-			<a href="login.html">Login</a>
-			<a href="index.html">Index</a>
-			<a href="poll.html">Poll</a>
+		<div id="links" class="links">
+			<a class="link" href="login.html">Login</a>
+			<a class="link" href="index.html">Index</a>
+			<a class="link" href="poll.html">Poll</a>
 		</div>
 	</div>
 </body>

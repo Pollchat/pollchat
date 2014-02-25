@@ -4,11 +4,11 @@ html {
 
 body {
 	display : inline;
-	height : 1005;
+	height : 100%;
+	font-family : sans-serif;
 }
 
 .hero-unit {
-	font-family : sans-serif;
 	margin-top : 3em;
 }
 
@@ -21,9 +21,10 @@ body {
 }
 
 .page-title {
-	font-family : sans-serif;
 	margin-left : 1em;
 	color : rgb(123, 250, 154);
+	font-family : 'Oregano', cursive;
+	font-size : 3.5em;
 }
 
 .data-entry {
@@ -134,7 +135,24 @@ li.response:hover {
 
 .poll-answers {
 	margin-left : 4.5em;
+}
 
-·prose {
-	font-family: 'Fanwood Text', serif;
+.prose {
+	font-family : 'Fanwood Text', serif;
+	font-size : large;
+	line-height : 1.5;
+}
+
+.declaration {
+	margin-top 
+}
+
+.links {
+	padding-top : 1em;
+}
+
+a.link {
+	display: block;
+	padding-bottom: 0.5em;
+	color : #daa;
 }
