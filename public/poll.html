@@ -2,7 +2,7 @@
 <head>
 <meta charset="utf-8"/>
 <title>Pollchat - Realtime polling in a flash</title>
-<script type="application/json" src="main.js" ></script>
+<script type="application/javascript" src="main.js" ></script>
 <link href="pollchat.css" rel="stylesheet" type="text/css">
 <link href='http://fonts.googleapis.com/css?family=Oregano' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Flamenco' rel='stylesheet' type='text/css'>
@@ -28,6 +28,10 @@
 		</div>
 	</div>
 	<div id="secondary" class="sidebar-right">
+		<div id="chat-input" class="chat-message">
+			<input id="chat-entry" class="data-entry chat-entry" type="text"/>
+			<input id="chat-send" class="btn btn-submit" type="submit" value="Send" onClick="sendMessage();"/> 
+		</div>
 		<div id="chat" class="chat-window">
 			<div class="chat-comment"><span class="chat-username">Bob :</span><span class="chat-text">I can never remember if this is Pierce or not!</span></div>
 			<div class="chat-comment"><span class="chat-username">Mary :</span><span class="chat-text">I think it's Daniel.</span></div>
