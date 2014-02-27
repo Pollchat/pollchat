@@ -7,7 +7,7 @@
 <link href='http://fonts.googleapis.com/css?family=Oregano' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Flamenco' rel='stylesheet' type='text/css'>
 </head>
-<body>
+<body onload="reOrderChat();">
 	<div id="left-side" class="sidebar-left">	
 		<h1 id="title" class="page-title">Pollchat</h1>
 		<div id="hero" class="hero-unit">
@@ -27,10 +27,10 @@
 			</div>
 		</div>
 	</div>
-	<div id="secondary" class="sidebar-right">
+	<div id="secondary" class="sidebar-right chat-block">
 		<div id="chat-input" class="chat-message">
-			<input id="chat-entry" class="data-entry chat-entry" type="text"/>
-			<input id="chat-send" class="btn btn-submit" type="submit" value="Send" onClick="sendMessage();"/> 
+			<input id="chat-entry" class="data-entry chat-entry" type="text" onkeydown="if (event.keyCode == 13) document.getElementById('chat-send').click()" placeholder="Type your message here..."/>
+			<span id="chat-send" class="btn btn-custom" onClick="sendMessage();">Send</span> 
 		</div>
 		<div id="chat" class="chat-window">
 			<div class="chat-comment"><span class="chat-username">Bob :</span><span class="chat-text">I can never remember if this is Pierce or not!</span></div>

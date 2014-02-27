@@ -6,6 +6,7 @@ body {
 	display : inline;
 	height : 100%;
 	font-family : sans-serif;
+	background-color: #008080;
 }
 
 .hero-unit {
@@ -16,28 +17,52 @@ body {
 }
 
 .btn {
-
-}
-
-.btn-submit {
 	cursor: pointer;
 	border-radius: 5px;
 	padding: 5px 15px;
 }
 
+.btn-submit {
+	
+}
+
 .btn-create {
-	float : right;
+	margin-right: 7em;
+}
+
+.btn-send {
+	display : inline;
+}
+
+.btn-custom {
+	padding: 5px;
+	border-radius: 4px;
+	border-style: solid;
+	border-color: gray;
+	border-width: 1px;
+	box-shadow: 2.5px 2.55px 1px #888;
+}
+
+a.btn-custom {
+	text-decoration: none;
+	color: black;
+}
+
+.btn-custom:hover {
+	background-color: teal;
+	color: white;
+	cursor: pointer;
 }
 
 .page-title {
 	margin-left : 1em;
-	color : rgb(123, 250, 154);
+	color : #7bfa9a;
 	font-family : 'Oregano', cursive;
 	font-size : 3.5em;
 }
 
 .subtitle {
-	color : rgb(119, 138, 138);
+	color : #00fa9a;
 	font-size : 1.5em;
 }
 
@@ -59,38 +84,52 @@ body {
 }
 
 .sidebar-left {
-	display : inline;
-	float : left;
+	display : inline-block;
 	width : 63%;
 	padding-left : 2.5em;
+	margin-right: 2em;
 }
 
 .sidebar-right {
-	float : right;
-	width : 30%;
-	margin-top : 5em;
-	height : 100%;
+	display: inline-block;
+	width : 25%;
+	margin-right: 3em;
+	padding-bottom: 2em;
+	padding-left: 2em;
+	background-color: rgb(243, 243, 243);
 }
 
 .poll-question {
-	margin-left : 10em;
+	text-align: center;
 	margin-bottom : 1em;
 }
 
 .chat-window {
 	border-left-style : outset;
 	padding-left : 0.5em;
-	margin : auto;
-	height : 100%;
+	margin-right: 2.5em;
+	margin-bottom : 2em;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	font-size: 1.25em;
+}
+
+.chat-block {
+	padding-top: 2.5em;
+	position: fixed;
+	margin-top: 10em;
 }
 
 .chat-username {
 	margin-right : 10px;
-	color : #ddc;
 }
 
 .chat-text {
 
+}
+
+.chat-entry {
+	display: inline;
 }
 
 .chat-comment {
@@ -106,7 +145,7 @@ body {
 
 .poll-options {
 	list-style-type : none;
-	margin-left : 3em;
+	text-align: center;
 	margin-bottom : 3em;
 }
 
@@ -121,13 +160,16 @@ li.response:hover {
 }
 
 .poll {
-	padding-left: 10em;
+	text-align: center;
 }
 
 .recent-polls {
 	float : right;
-	width : 50%;
+	width : 35%;
 	margin-top : 5%;
+	background-color: rgb(243, 243, 243);
+	margin-right: 10%;
+	padding-left: 2em;
 }
 
 .poll-input {
@@ -135,6 +177,10 @@ li.response:hover {
 	padding-right : 5em;
 	margin-left : 2.5em;
 	width : 40%;
+}
+
+.hero-poll {
+	margin-left: 10em;
 }
 
 .top-poll-question,
@@ -145,12 +191,11 @@ li.response:hover {
 .recent-poll {
 	border-style : solid;
 	border-width : 6px;
-	border-color : azure;
+	border-color : grey;
 	margin-bottom : 1em;
-	margin-right : 1em;
+	margin-right : 3em;
 	padding-left : 1em;
 	padding-top : 1em;
-	border-radius : 10px;
 }
 
 .question-entry {
@@ -202,4 +247,12 @@ a.main-page-link:hover {
 
 .login-body {
 	margin-top : 8em;
+}
+
+.hidden {
+	display : none;
+}
+
+.poll-create-options {
+	padding-left: 5em;
 }
