@@ -16,6 +16,12 @@ body {
 	padding-bottom : 2.5em;
 }
 
+.login-unit {
+	padding-top: 2em;
+	padding-left: 1.5em;
+	padding-right: 1.5em;
+}
+
 .btn {
 	cursor: pointer;
 	border-radius: 5px;
@@ -191,7 +197,7 @@ li.response:hover {
 .recent-poll {
 	border-style : solid;
 	border-width : 6px;
-	border-color : grey;
+	border-color : gray;
 	margin-bottom : 1em;
 	margin-right : 3em;
 	padding-left : 1em;
@@ -241,16 +247,19 @@ a.main-page-link:hover {
 }
 
 .login-header {
-	padding-left : 2.5em;
+	padding-left: 2.5em;
 	float : left;
 }
 
 .login-body {
-	margin-top : 8em;
+	margin-top: 8em;
+	margin-left: 40%;
+	width: 21%;
+	text-align: center;
 }
 
 .hidden {
-	display : none;
+	display: none;
 }
 
 .poll-create-options {
