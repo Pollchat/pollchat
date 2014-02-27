@@ -157,7 +157,6 @@ li.response:hover {
 	margin-bottom : 2.5em;
 	width : 30em;
 	height : 5em;
-	border-radius : none;
 	max-width : 34.25em;
 	max-height : 15em;
 }
@@ -173,7 +172,7 @@ li.response:hover {
 }
 
 .declaration {
-	margin-top 
+
 }
 
 .links {
