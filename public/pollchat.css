@@ -185,6 +185,7 @@ a.btn-custom {
 .poll-options {
 	list-style-type: none;
 	margin-bottom: 3em;
+	margin-top: 25%;
 }
 
 .poll {
@@ -203,6 +204,7 @@ li.response {
 li.response:hover {
 	background-color: #cdc;
 	border-radius: 6px;
+	cursor: pointer;
 }
 
 .chat-window {
