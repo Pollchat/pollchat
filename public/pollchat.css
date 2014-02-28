@@ -74,11 +74,15 @@ a.btn-custom {
 
 .data-entry {
 	display : block;
-	width : 25em;
+	width : 60%;
 	margin-bottom : 1em;
 	height : 2em;
 	border-radius : 1px;
 	padding-left : 1em;
+}
+
+.data-entry-large {
+	width: 90%;
 }
 
 .data-box {
@@ -92,16 +96,16 @@ a.btn-custom {
 .sidebar-left {
 	display : inline-block;
 	width : 63%;
-	padding-left : 2.5em;
-	margin-right: 2em;
+	padding-left : 2.5%;
+	margin-right: 1.5%;
 }
 
 .sidebar-right {
 	display: inline-block;
 	width : 25%;
-	margin-right: 3em;
-	padding-bottom: 2em;
-	padding-left: 2em;
+	margin-right: 2%;
+	padding-bottom: 1%;
+	padding-left: 1.5%;
 	background-color: rgb(243, 243, 243);
 }
 
@@ -191,7 +195,7 @@ li.response:hover {
 }
 
 .hero-poll {
-	margin-left: 10em;
+
 }
 
 .top-poll-question,
@@ -210,15 +214,15 @@ li.response:hover {
 }
 
 .question-entry {
-	margin-bottom : 2.5em;
-	width : 30em;
-	height : 5em;
-	max-width : 34.25em;
-	max-height : 15em;
+	margin-bottom : 4%;
+	width : 90%;
+	height : 30%;
+	max-width : 90%;
+	max-height : 30%;
 }
 
 .poll-answers {
-	margin-left : 2em;
+
 }
 
 .prose {
@@ -268,5 +272,5 @@ a.main-page-link:hover {
 }
 
 .poll-create-options {
-	padding-left: 5em;
+	padding-left: 5%;
 }
