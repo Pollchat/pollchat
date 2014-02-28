@@ -1,6 +1,11 @@
 function hidePoll() {
-	var graph = document.GetElementById("poll");
+	var graph = document.getElementById("poll-results");
+	graph.className = "hidden";
+}
 
+function showPoll() {
+	var graph = document.getElementById("poll-results");
+	graph.classList.remove("hidden");
 }
 
 function sendMessage() {
