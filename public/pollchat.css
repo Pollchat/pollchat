@@ -1,19 +1,24 @@
 html {
-	height : 100%;
+	height: 100%;
 }
 
 body {
-	display : inline;
-	height : 100%;
-	font-family : sans-serif;
+	display: inline;
+	height: 100%;
+	font-family: sans-serif;
 	background-color: #008080;
 }
 
 .hero-unit {
-	margin-top : 3em;
+	margin-top: 3em;
 	background: rgb(243, 243, 243);
 	padding: 1em;
-	padding-bottom : 2.5em;
+	padding-bottom: 2.5em;
+}
+
+.hero-poll {
+	height: 34em;
+	margin-bottom: 2%;
 }
 
 .login-unit {
@@ -37,7 +42,7 @@ body {
 }
 
 .btn-send {
-	display : inline;
+	display: inline;
 }
 
 .btn-custom {
@@ -61,24 +66,24 @@ a.btn-custom {
 }
 
 .page-title {
-	margin-left : 1em;
-	color : #7bfa9a;
-	font-family : 'Oregano', cursive;
-	font-size : 3.5em;
+	margin-left: 1em;
+	color: #7bfa9a;
+	font-family: 'Oregano', cursive;
+	font-size: 3.5em;
 }
 
 .subtitle {
-	color : #00fa9a;
-	font-size : 1.5em;
+	color: #00fa9a;
+	font-size: 1.5em;
 }
 
 .data-entry {
-	display : block;
-	width : 60%;
-	margin-bottom : 1em;
-	height : 2em;
-	border-radius : 1px;
-	padding-left : 1em;
+	display: block;
+	width: 60%;
+	margin-bottom: 1em;
+	height: 2em;
+	border-radius: 1px;
+	padding-left: 1em;
 }
 
 .data-entry-large {
@@ -94,15 +99,15 @@ a.btn-custom {
 }
 
 .sidebar-left {
-	display : inline-block;
-	width : 63%;
-	padding-left : 2.5%;
+	display: inline-block;
+	width: 63%;
+	padding-left: 2.5%;
 	margin-right: 1.5%;
 }
 
 .sidebar-right {
 	display: inline-block;
-	width : 25%;
+	width: 25%;
 	margin-right: 2%;
 	padding-bottom: 1%;
 	padding-left: 1.5%;
@@ -115,15 +120,15 @@ a.btn-custom {
 }
 
 .poll-question {
-	text-align: center;
-	margin-bottom : 1em;
+	text-align: left;
+	margin-bottom: 3%;
 }
 
 .chat-window {
-	border-left-style : outset;
-	padding-left : 0.5em;
+	border-left-style: outset;
+	padding-left: 0.5em;
 	margin-right: 2.5em;
-	margin-bottom : 2em;
+	margin-bottom: 2em;
 	padding-top: 0.5em;
 	padding-bottom: 0.5em;
 	font-size: 1.25em;
@@ -136,7 +141,7 @@ a.btn-custom {
 }
 
 .chat-username {
-	margin-right : 10px;
+	margin-right: 10px;
 }
 
 .chat-text {
@@ -148,50 +153,51 @@ a.btn-custom {
 }
 
 .chat-comment {
-	font-family : 'Flamenco', cursive;
+	font-family: 'Flamenco', cursive;
 }
 
 #poll-options {
-	list-style-type : none;
-	padding : 0;
-	margin-left : 0;
-	display : inline;
+	display: inline-block;
+	width: 30%;
 }
 
 .poll-options {
-	list-style-type : none;
-	text-align: center;
-	margin-bottom : 3em;
+	list-style-type: none;
+	margin-bottom: 3em;
 }
 
 li.response {
-	display : inline;
-	padding : 1em;
+	display: block;
+	padding-bottom: 7.5%;
+	padding-top: 7.5%;
+	margin-bottom: 5%;
+	padding-left: 4%;
 }
 
 li.response:hover {
-	background-color : #cdc;
+	background-color: #cdc;
 	border-radius: 6px;
 }
 
 .poll {
-	text-align: center;
+	display: inline-block;
+	float: right;
 }
 
 .recent-polls {
-	float : right;
-	width : 35%;
-	margin-top : 5%;
+	float: right;
+	width: 35%;
+	margin-top: 5%;
 	background-color: rgb(243, 243, 243);
 	margin-right: 10%;
 	padding-left: 2em;
 }
 
 .poll-input {
-	float : left;
-	padding-right : 5em;
-	margin-left : 2.5em;
-	width : 40%;
+	float: left;
+	padding-right: 5em;
+	margin-left: 2.5em;
+	width: 40%;
 }
 
 .hero-poll {
@@ -200,25 +206,25 @@ li.response:hover {
 
 .top-poll-question,
 .top-poll-answer {
-	display : inline;
+	display: inline;
 }
 
 .recent-poll {
-	border-style : solid;
-	border-width : 6px;
-	border-color : gray;
-	margin-bottom : 1em;
-	margin-right : 3em;
-	padding-left : 1em;
-	padding-top : 1em;
+	border-style: solid;
+	border-width: 6px;
+	border-color: gray;
+	margin-bottom: 1em;
+	margin-right: 3em;
+	padding-left: 1em;
+	padding-top: 1em;
 }
 
 .question-entry {
-	margin-bottom : 4%;
-	width : 90%;
-	height : 30%;
-	max-width : 90%;
-	max-height : 30%;
+	margin-bottom: 4%;
+	width: 90%;
+	height: 30%;
+	max-width: 90%;
+	max-height: 30%;
 }
 
 .poll-answers {
@@ -226,9 +232,9 @@ li.response:hover {
 }
 
 .prose {
-	font-family : 'Fanwood Text', serif;
-	font-size : large;
-	line-height : 1.5;
+	font-family: 'Fanwood Text', serif;
+	font-size: large;
+	line-height: 1.5;
 }
 
 .declaration {
@@ -242,7 +248,7 @@ li.response:hover {
 a.link {
 	display: block;
 	padding-bottom: 0.5em;
-	color : #daa;
+	color: #daa;
 }
 
 a.main-page-link {
@@ -257,7 +263,7 @@ a.main-page-link:hover {
 
 .login-header {
 	padding-left: 2.5em;
-	float : left;
+	float: left;
 }
 
 .login-body {
