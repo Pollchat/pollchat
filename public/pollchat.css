@@ -187,7 +187,7 @@ li.response:hover {
 .recent-polls {
 	float: right;
 	width: 35%;
-	margin-top: 5%;
+	margin-top: 12%;
 	background-color: rgb(243, 243, 243);
 	margin-right: 10%;
 	padding-left: 2em;
@@ -209,14 +209,21 @@ li.response:hover {
 	display: inline;
 }
 
+.poll-number {
+	display: inline;
+	font-size: large;
+	color: #D087DA;
+}
+
 .recent-poll {
 	border-style: solid;
-	border-width: 6px;
+	border-width: 3px;
 	border-color: gray;
 	margin-bottom: 1em;
 	margin-right: 3em;
 	padding-left: 1em;
 	padding-top: 1em;
+	border-radius: 5px;
 }
 
 .question-entry {
