@@ -5,17 +5,23 @@ import (
 	"fmt"
 
 	"github.com/codegangsta/martini"
+	"github.com/martini-contrib/render"
 )
 
 func main() {
 	m:= martini.Classic()
+	m.Use(render.Renderer(render.Options{
+		Directory : "templates",
+		Layout : "layout",
+		Extensions: []string{".tmpl", ".html"}, 
+	}))
 	// add an auth step here to redirect to /login if not authed
-	m.Get("/", func() string {
-		return "This is the main page"
+	m.Get("/", func(r render.Render) {
+		r.HTML(200, "index", nil)
 	})
 
-	m.Get("/poll/:id", func(params martini.Params) string {
-		return "This is the page for poll #" + params["id"]
+	m.Get("/poll", func(r render.Render) {
+		r.HTML(200, "poll", nil)
 	})
 
 	m.Get("/hash", func() string {
@@ -25,8 +31,13 @@ func main() {
 		return fmt.Sprintf("%x",hs)
 	})
 
-	m.Get("/login", func() string {
-		return "This is the login page."
+	m.Get("/login", func(r render.Render) {
+		r.HTML(200, "login", nil)
 	})
+
+	m.Get("/about", func(r render.Render) {
+		r.HTML(200,"about",nil)
+	})
+
 	m.Run()
 }

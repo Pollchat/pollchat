@@ -1,0 +1,34 @@
+<link href='http://fonts.googleapis.com/css?family=Oregano' rel='stylesheet' type='text/css'/>
+<link href='http://fonts.googleapis.com/css?family=Flamenco' rel='stylesheet' type='text/css'/>
+</head>
+<body onload="reOrderChat();">
+	<div id="left-side" class="sidebar-left">	
+		<h1 id="title" class="page-title">Pollchat</h1>
+		<div id="hero" class="hero-unit hero-poll">
+			<div id="poll-question" class="poll-question">
+				<span class="text-super">What is the name of the current James Bond?</span>
+			</div>
+			<div id="poll-options">
+				<ul class="poll-options">
+					<li class="response" onclick="showPoll();">Pierce Brosnan</li>
+					<li class="response" onclick="showPoll();">Timothy Dalton</li>
+					<li class="response" onclick="showPoll();">Sean Connery</li>
+					<li class="response" onclick="showPoll();">Daniel Craig</li>
+				</ul>
+			</div>
+			<div id="poll-results" class="poll hidden">
+				<img src="http://placehold.it/500x500" alt="Poll Results Graph shown here"/>
+			</div>
+		</div>
+	</div>
+	<div id="secondary" class="sidebar-right chat-block">
+		<div id="chat-input" class="chat-message">
+			<input id="chat-entry" class="data-entry chat-entry" type="text" onkeydown="if (event.keyCode == 13) document.getElementById('chat-send').click()" placeholder="Type your message here..."/>
+			<span id="chat-send" class="btn btn-custom" onclick="sendMessage();">Send</span> 
+		</div>
+		<div id="chat" class="chat-window">
+			<div class="chat-comment"><span class="chat-username">Bob :</span><span class="chat-text">I can never remember if this is Pierce or not!</span></div>
+			<div class="chat-comment"><span class="chat-username">Mary :</span><span class="chat-text">I think it's Daniel.</span></div>
+			<div class="chat-comment"><span class="chat-username">Anne :</span><span class="chat-text">It's definitely not Pierce.</span></div>
+		</div>
+	</div>
