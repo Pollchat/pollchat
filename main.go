@@ -6,10 +6,12 @@ import (
 
 	"github.com/codegangsta/martini"
 	"github.com/martini-contrib/render"
+	"github.com/martini-contrib/gzip"
 )
 
 func main() {
 	m:= martini.Classic()
+	m.Use(gzip.All())
 	m.Use(render.Renderer(render.Options{
 		Directory : "templates",
 		Layout : "layout",
