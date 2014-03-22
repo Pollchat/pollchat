@@ -8,7 +8,7 @@ import (
 	"github.com/martini-contrib/render"
 	"github.com/martini-contrib/gzip"
 
-	"code.google.com/p/go.net/websocket"
+	"github.com/gorilla/websocket"
 )
 
 func main() {
@@ -43,9 +43,9 @@ func main() {
 		r.HTML(200,"about",nil)
 	})
 
-	m.Get("/data", websocket.Handler(func (ws *websocket.Conn){
+	m.Get("/data", func (ws *websocket.Conn){
 		fmt.Printf("Websocket connection handled")
-	}).ServeHTTP)
+	})
 
 	m.Run()
 }
