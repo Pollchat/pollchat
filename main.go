@@ -28,13 +28,6 @@ func main() {
 		r.HTML(200, "poll", nil)
 	})
 
-	m.Get("/hash", func() string {
-		h := sha1.New()
-		h.Write([]byte("this is a hash"))
-		hs := h.Sum(nil)
-		return fmt.Sprintf("%x",hs)
-	})
-
 	m.Get("/login", func(r render.Render) {
 		r.HTML(200, "login", nil)
 	})
