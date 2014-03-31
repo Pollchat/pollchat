@@ -85,7 +85,6 @@ function onPollLoad() {
     graphConn.onmessage = function(evt){
         // update graph
         var res = JSON.parse(evt.data);
-        console.log(res.responses);
         updateGraph(res.responses);
     }
 

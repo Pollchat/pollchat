@@ -84,7 +84,6 @@ func (c *connection) readPump(poll *Poll) {
 		if err != nil {
 			break
 		}
-		log.Println(comment)
 		poll.broadcast <- comment
 	}
 }

@@ -28,7 +28,6 @@ func serveGraphWs(w http.ResponseWriter, r *http.Request, params martini.Params)
 	}
 	// write to the socket when counts are updated
 	c := &connection{ws: ws, feed: make(chan Comment, 256)}
-	log.Println("made it here in the graph")
 	collection[id].graphConnections[c] = true
 	<-c.feed
 	return 200, "websocket connection closed"
