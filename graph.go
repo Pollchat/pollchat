@@ -27,13 +27,9 @@ func serveGraphWs(w http.ResponseWriter, r *http.Request, params martini.Params)
 		return 503, "Pass a number"
 	}
 	// write to the socket when counts are updated
-	for {
-		select {
-		case <-questions[id].updated:
-			// write a new JSON object to the ws
-			log.Println("sending graph data...")
-			ws.WriteJSON(questions[id])
-		}
-	}
+	c := &connection{ws: ws, feed: make(chan Comment, 256)}
+	log.Println("made it here in the graph")
+	collection[id].graphConnections[c] = true
+	<-c.feed
 	return 200, "websocket connection closed"
 }

@@ -298,3 +298,11 @@ li.response:hover {
 	display: none;
 }
 
+.d3graph rect {
+	fill: steelblue;
+	stroke: white;
+}
+
+.bar {
+	fill: steelblue;
+}

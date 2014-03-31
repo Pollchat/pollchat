@@ -1,5 +1,7 @@
 package main
 
+import "log"
+
 type Poll struct {
 	// Registered connections.
 	connections map[*connection]bool
@@ -12,6 +14,15 @@ type Poll struct {
 
 	// Unregister requests from connections.
 	unregister chan *connection
+
+	// question
+	question *Question
+
+	// channel to trigger graph updates
+	update chan int
+
+	// all the connections that need to be updated once a new value is received
+	graphConnections map[*connection]bool
 }
 
 func (p *Poll) run() {
@@ -29,6 +40,15 @@ func (p *Poll) run() {
 				default:
 					close(c.feed)
 					delete(p.connections, c)
+				}
+			}
+		case <-p.update:
+			for c := range p.graphConnections {
+
+				err := c.ws.WriteJSON(p.question)
+				if err != nil {
+					log.Println(err)
+					c.feed <- Comment{}
 				}
 			}
 		}

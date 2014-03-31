@@ -84,15 +84,117 @@ function onPollLoad() {
 
     graphConn.onmessage = function(evt){
         // update graph
-        console.log("graph update");
-        console.log(JSON.parse(evt.data));
+        var res = JSON.parse(evt.data);
+        console.log(res.responses);
+        updateGraph(res.responses);
     }
 
     graphConn.onclose = function(evt) {
         console.log("graph connection closed")
     }
+
+    drawGraph();
 }
 
-function createPoll() {
-    
+function drawGraph(){
+    var margin = {top: 20, right: 20, bottom: 30, left: 40},
+        width = 500 - margin.left - margin.right,
+        height = 500 - margin.top - margin.bottom;
+
+    var x = d3.scale.ordinal()
+        .rangeRoundBands([0, width], .1);
+
+    var y = d3.scale.linear()
+        .range([height, 0]);
+
+    var xAxis = d3.svg.axis()
+        .scale(x)
+        .orient("bottom");
+
+    var yAxis = d3.svg.axis()
+        .scale(y)
+        .orient("left")
+        .ticks(10, "votes");
+
+    var svg = d3.select("#poll-results").append("svg")
+        .attr("class", "d3graph")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    var responses = [];
+        responses[0] = {"response":"", "count":0};
+        responses[1] = {"response":"", "count":0};
+        responses[2] = {"response":"", "count":0};
+        responses[3] = {"response":"", "count":0};
+
+      x.domain(responses.map(function(d) { return d.response; }));
+      y.domain([0, d3.max(responses, function(d) { return d.count; })]);
+
+      svg.append("g")
+          .attr("class", "x axis")
+          .attr("transform", "translate(0," + height + ")")
+          .call(xAxis);
+
+      svg.append("g")
+          .attr("class", "y axis")
+          .call(yAxis)
+        .append("text")
+          .attr("transform", "rotate(-90)")
+          .attr("y", 3)
+          .attr("dy", ".71em")
+          .style("text-anchor", "end")
+          .text("Votes");
+
+      svg.selectAll(".bar")
+          .data(responses)
+        .enter().append("rect")
+          .attr("class", "bar")
+          .attr("x", function(d) { return x(d.response); })
+          .attr("width", x.rangeBand())
+          .attr("y", function(d) { return y(d.count); })
+          .attr("height", function(d) { return height - y(d.count); });
+}
+
+function updateGraph(res) {
+    var margin = {top: 20, right: 20, bottom: 30, left: 40},
+        width = 500 - margin.left - margin.right,
+        height = 500 - margin.top - margin.bottom;
+
+    var x = d3.scale.ordinal()
+        .rangeRoundBands([0, width], .1);
+
+    var y = d3.scale.linear()
+        .range([height, 0]);
+
+    var xAxis = d3.svg.axis()
+        .scale(x)
+        .orient("bottom");
+
+    var yAxis = d3.svg.axis()
+        .scale(y)
+        .orient("left")
+        .ticks(10, "votes");
+
+    var responses = [];
+        responses[0] = res["1"];
+        responses[1] = res["2"];
+        responses[2] = res["3"];
+        responses[3] = res["4"];
+
+    var data = res;
+      x.domain(responses.map(function(d) { return d.response; }));
+      y.domain([0, d3.max(responses, function(d) { return d.count; })]);
+
+
+      d3.selectAll(".d3graph").selectAll("rect")
+          .data(responses)
+        .transition()
+          .duration(1000)
+          .attr("class", "bar")
+          .attr("x", function(d) { return x(d.response); })
+          .attr("width", x.rangeBand())
+          .attr("y", function(d) { return y(d.count); })
+          .attr("height", function(d) { return height - y(d.count); });
 }

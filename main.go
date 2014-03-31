@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"net/http"
 	"strconv"
 
 	"github.com/codegangsta/martini"
@@ -10,7 +11,6 @@ import (
 )
 
 func main() {
-	questions[qcount] = GenerateQuestion("Who are you?", "Tom", "Laura", "Socks", "A ghost")
 	m := martini.Classic()
 	//m.Use(gzip.All())
 	m.Use(render.Renderer(render.Options{
@@ -26,13 +26,38 @@ func main() {
 	m.Get("/poll/:pollNumber", func(r render.Render, params martini.Params) {
 		id, err := strconv.Atoi(params["pollNumber"])
 		if err != nil {
+			// should redirect here maybe 404?
 			log.Println(err)
+			r.Redirect("/")
 		}
-		if question, ok := questions[id]; ok {
-			r.HTML(200, "poll", question)
+		if poll, ok := collection[id]; ok {
+			r.HTML(200, "poll", poll.question)
 		} else {
-			// redirect
+			// redirect maybe 404
+			r.Redirect("/")
 		}
+	})
+
+	// create a poll
+	m.Post("/poll", func(req *http.Request, r render.Render, params martini.Params) {
+		id := len(collection) + 1
+		// parse form
+		err := req.ParseForm()
+		if err != nil {
+			r.Redirect("/")
+		}
+		p := &Poll{
+			broadcast:        make(chan Comment),
+			register:         make(chan *connection),
+			unregister:       make(chan *connection),
+			connections:      make(map[*connection]bool),
+			graphConnections: make(map[*connection]bool),
+			update:           make(chan int),
+			question:         GenerateQuestion(id, req.PostForm.Get("pollquestion"), req.PostForm.Get("pollresponse1"), req.PostForm.Get("pollresponse2"), req.PostForm.Get("pollresponse3"), req.PostForm.Get("pollresponse4")),
+		}
+		go p.run()
+		collection[id] = p
+		r.Redirect("/poll/" + strconv.Itoa(id))
 	})
 
 	m.Post("/poll/:pollNumber/:response", func(params martini.Params) {
@@ -40,13 +65,10 @@ func main() {
 		if err != nil {
 			log.Println(err)
 		}
-		reponseID, err := strconv.Atoi(params["response"])
-		if err != nil {
-			log.Println(err)
-		}
-		questions[id].Responses[reponseID].Count++
-		log.Println("Got here")
-		questions[id].updated <- true
+		// TODO: check the response and id
+		collection[id].question.Responses[params["response"]].Count++
+		// send an update to change the charts
+		collection[id].update <- id
 	})
 
 	m.Get("/login", func(r render.Render) {

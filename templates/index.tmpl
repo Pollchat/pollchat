@@ -6,14 +6,16 @@
 		<div id="hero" class="hero-unit hero-poll">
 			<div id="poll-creation" class="poll-create-options">
 				<h2 id="subtitle-createpoll" class="subtitle">Create Poll</h2>
-				<textarea class="data-entry question-entry" placeholder="Question"></textarea>
-				<div class="poll-answers">
-					<input class="data-entry data-entry-large" type="text" placeholder="Option 1"/>
-					<input class="data-entry data-entry-large" type="text" placeholder="Option 2"/>
-					<input class="data-entry data-entry-large" type="text" placeholder="Option 3"/>
-					<input class="data-entry data-entry-large" type="text" placeholder="Option 4"/>
-					<a href="poll.xhtml" class="btn-custom btn-create" onclick="createPoll();">Submit</a>
-				</div>
+				<form action="/poll" method="POST">
+					<textarea id="pollquestion" name="pollquestion" class="data-entry question-entry" placeholder="Question"></textarea>
+					<div id="pollresponses" class="poll-answers">
+						<input name="pollresponse1" class="data-entry data-entry-large" type="text" placeholder="Option 1"/>
+						<input name="pollresponse2" class="data-entry data-entry-large" type="text" placeholder="Option 2"/>
+						<input name="pollresponse3" class="data-entry data-entry-large" type="text" placeholder="Option 3"/>
+						<input name="pollresponse4" class="data-entry data-entry-large" type="text" placeholder="Option 4"/>
+						<button class="btn-custom btn-create">Submit</button>
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>
