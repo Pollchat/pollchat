@@ -127,7 +127,7 @@ function drawGraph(){
     var yAxis = d3.svg.axis()
         .scale(y)
         .orient("left")
-        .ticks(10, "votes");
+        .ticks(5, "votes");
 
     var svg = d3.select("#poll-results").append("svg")
         .attr("class", "d3graph")
@@ -146,12 +146,12 @@ function drawGraph(){
       y.domain([0, d3.max(responses, function(d) { return d.count; })]);
 
       svg.append("g")
-          .attr("class", "x axis")
+          .attr("class", "x-axis")
           .attr("transform", "translate(0," + height + ")")
           .call(xAxis);
 
       svg.append("g")
-          .attr("class", "y axis")
+          .attr("class", "y-axis")
           .call(yAxis)
         .append("text")
           .attr("transform", "rotate(-90)")
@@ -188,7 +188,7 @@ function updateGraph(res) {
     var yAxis = d3.svg.axis()
         .scale(y)
         .orient("left")
-        .ticks(10, "votes");
+        .ticks(5, "votes");
 
     var responses = [];
         responses[0] = res["1"];
@@ -200,8 +200,12 @@ function updateGraph(res) {
       x.domain(responses.map(function(d) { return d.response; }));
       y.domain([0, d3.max(responses, function(d) { return d.count; })]);
 
+    var svg = d3.selectAll(".d3graph");
 
-      d3.selectAll(".d3graph").selectAll("rect")
+    svg.selectAll("g.y-axis")
+        .call(yAxis);
+
+    svg.selectAll("rect")
           .data(responses)
         .transition()
           .duration(1000)
