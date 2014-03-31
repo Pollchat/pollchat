@@ -1,5 +1,6 @@
 var conn;
 var graphConn;
+var nickname;
 
 
 function hidePoll() {
@@ -17,6 +18,19 @@ function showPoll(response) {
 	graph.classList.remove("hidden");
 }
 
+function setNickname() {
+    var nicknameEntry = document.getElementById("nickname-entry");
+    if (nicknameEntry.value == ""){
+        return;
+    }
+    nickname = nicknameEntry.value;
+    var nicknamediv = document.getElementById("nickname-input");
+    nicknamediv.className = "hidden";
+
+    var chat = document.getElementById("chat-input");
+    chat.classList.remove("hidden");
+}
+
 function sendMessage() {
     // send message via websocket
 	var chatMessage = document.getElementById("chat-entry");
@@ -24,7 +38,7 @@ function sendMessage() {
         return;
     }
     var comment = {
-        "name": "tom",
+        "name": nickname,
         "message": chatMessage.value
     }
     conn.send(JSON.stringify(comment));

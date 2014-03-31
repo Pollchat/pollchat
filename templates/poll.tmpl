@@ -23,7 +23,11 @@
 		</div>
 	</div>
 	<div id="secondary" class="sidebar-right chat-block">
-		<div id="chat-input" class="chat-message">
+		<div id="nickname-input" >
+			<input id="nickname-entry" class="data-entry chat-entry" type="text" onkeydown="if (event.keyCode == 13) document.getElementById('nickname-send').click()" placeholder="Nickname"/>
+			<span id="nickname-send" class="btn btn-custom" onclick="setNickname();">Set</span> 
+		</div>
+		<div id="chat-input" class="chat-message hidden">
 			<input id="chat-entry" class="data-entry chat-entry" type="text" onkeydown="if (event.keyCode == 13) document.getElementById('chat-send').click()" placeholder="Type your message here..."/>
 			<span id="chat-send" class="btn btn-custom" onclick="sendMessage();">Send</span> 
 		</div>
