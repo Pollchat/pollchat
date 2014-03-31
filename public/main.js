@@ -11,7 +11,7 @@ function showPoll(response) {
     // send response to server based on selected option
     var pollNumber = document.getElementById("pollNumber").innerText;
     var request = new XMLHttpRequest();
-    request.open("POST", "http://localhost:3000/poll/"+pollNumber+"/"+response, true);
+    request.open("POST", "http://pollchat.co.uk:3000/poll/"+pollNumber+"/"+response, true);
     request.send();
 	var graph = document.getElementById("poll-results");
 	graph.classList.remove("hidden");
@@ -71,8 +71,8 @@ function reOrderChat() {
 
 function onPollLoad() {
     var pollNumber = document.getElementById("pollNumber").innerText;
-    conn = new WebSocket("ws://localhost:3000/data/"+pollNumber);
-    graphConn = new WebSocket("ws://localhost:3000/graph/"+pollNumber);
+    conn = new WebSocket("ws://pollchat.co.uk:3000/data/"+pollNumber);
+    graphConn = new WebSocket("ws://pollchat.co.uk:3000/graph/"+pollNumber);
 
     conn.onmessage = function(evt){
         appendMessageToChat(evt.data);
