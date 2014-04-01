@@ -151,6 +151,10 @@ a.btn-custom {
 	font-size: x-large;
 }
 
+.question-number {
+	font-size: 3em;
+}
+
 .sidebar-left {
 	display: inline-block;
 	width: 63%;
