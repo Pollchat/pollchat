@@ -14,9 +14,10 @@ func main() {
 	m := martini.Classic()
 	//m.Use(gzip.All())
 	m.Use(render.Renderer(render.Options{
-		Directory:  "templates",
-		Layout:     "layout",
-		Extensions: []string{".tmpl", ".html"},
+		Directory:       "templates",
+		Layout:          "layout",
+		Extensions:      []string{".tmpl", ".html"},
+		HTMLContentType: "application/xhtml+xml",
 	}))
 	// add an auth step here to redirect to /login if not authed
 	m.Get("/", func(r render.Render) {
