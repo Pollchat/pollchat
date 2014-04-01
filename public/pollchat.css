@@ -299,10 +299,15 @@ li.response:hover {
 }
 
 .d3graph rect {
-	fill: steelblue;
 	stroke: white;
 }
 
 .bar {
-	fill: steelblue;
+
+}
+
+.y-axis, .x-axis {
+    fill: none;
+    stroke: black;
+    shape-rendering: crispEdges;
 }

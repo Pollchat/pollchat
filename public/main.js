@@ -114,6 +114,9 @@ function drawGraph(){
         width = 500 - margin.left - margin.right,
         height = 500 - margin.top - margin.bottom;
 
+    var color = d3.scale.ordinal()
+      .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+
     var x = d3.scale.ordinal()
         .rangeRoundBands([0, width], .1);
 
@@ -127,7 +130,7 @@ function drawGraph(){
     var yAxis = d3.svg.axis()
         .scale(y)
         .orient("left")
-        .ticks(5, "votes");
+        .ticks(5);
 
     var svg = d3.select("#poll-results").append("svg")
         .attr("class", "d3graph")
@@ -164,6 +167,7 @@ function drawGraph(){
           .data(responses)
         .enter().append("rect")
           .attr("class", "bar")
+          .attr("fill", function(d) { return color(d.response) })
           .attr("x", function(d) { return x(d.response); })
           .attr("width", x.rangeBand())
           .attr("y", function(d) { return y(d.count); })
@@ -174,6 +178,9 @@ function updateGraph(res) {
     var margin = {top: 20, right: 20, bottom: 30, left: 40},
         width = 500 - margin.left - margin.right,
         height = 500 - margin.top - margin.bottom;
+
+    var color = d3.scale.ordinal()
+      .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
 
     var x = d3.scale.ordinal()
         .rangeRoundBands([0, width], .1);
@@ -210,6 +217,7 @@ function updateGraph(res) {
         .transition()
           .duration(1000)
           .attr("class", "bar")
+          .attr("fill", function(d) { return color(d.response) })
           .attr("x", function(d) { return x(d.response); })
           .attr("width", x.rangeBand())
           .attr("y", function(d) { return y(d.count); })
