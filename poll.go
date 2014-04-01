@@ -23,6 +23,12 @@ type Poll struct {
 
 	// all the connections that need to be updated once a new value is received
 	graphConnections map[*connection]bool
+
+	// channel to register the connection on
+	graphRegister chan *connection
+
+	// channel to handle deregistering connection
+	graphUnregister chan *connection
 }
 
 func (p *Poll) run() {
@@ -44,13 +50,18 @@ func (p *Poll) run() {
 			}
 		case <-p.update:
 			for c := range p.graphConnections {
-
 				err := c.ws.WriteJSON(p.question)
 				if err != nil {
 					log.Println(err)
 					c.feed <- Comment{}
+					delete(p.graphConnections, c)
 				}
 			}
+		case c := <-p.graphRegister:
+			p.graphConnections[c] = true
+		case c := <-p.graphUnregister:
+			delete(p.graphConnections, c)
+			c.feed <- Comment{}
 		}
 	}
 }

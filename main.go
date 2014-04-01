@@ -52,6 +52,8 @@ func main() {
 			unregister:       make(chan *connection),
 			connections:      make(map[*connection]bool),
 			graphConnections: make(map[*connection]bool),
+			graphRegister:    make(chan *connection),
+			graphUnregister:  make(chan *connection),
 			update:           make(chan int),
 			question:         GenerateQuestion(id, req.PostForm.Get("pollquestion"), req.PostForm.Get("pollresponse1"), req.PostForm.Get("pollresponse2"), req.PostForm.Get("pollresponse3"), req.PostForm.Get("pollresponse4")),
 		}
