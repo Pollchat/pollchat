@@ -226,10 +226,6 @@ function updateGraph(res) {
 
 function validatePollEntry(){
   // check there are at least two responses given
-  // check a question has been supplied
-  // trim white space when checking values
-  var question = document.getElementById("pollquestion");
-  console.log("question = " + question.value);
   if (document.getElementById("pollquestion").value.trim() == ""){
     return false;
   }
