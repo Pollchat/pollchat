@@ -21,7 +21,48 @@ func main() {
 	}))
 	// add an auth step here to redirect to /login if not authed
 	m.Get("/", func(r render.Render) {
-		r.HTML(200, "index", nil)
+		type recent struct {
+			Q   *Question
+			Top string
+		}
+		questions := make([]*recent, 0) //questions = append(questions, question)
+		if len(collection) > 5 {
+			// take the top 5
+			for last := len(collection); last > (len(collection) - 5); last-- {
+				q := collection[last].question
+				topres := ""
+				currentTop := -1
+				for _, res := range q.Responses {
+					if res.Count > currentTop {
+						currentTop = res.Count
+						topres = res.Response
+					}
+				}
+				ques := recent{collection[last].question, topres}
+				questions = append(questions, &ques)
+			}
+		} else {
+			for i := len(collection); i > 0; i-- {
+				q := collection[i].question
+				topres := ""
+				currentTop := -1
+				for _, res := range q.Responses {
+					if res.Count > currentTop {
+						currentTop = res.Count
+						topres = res.Response
+					}
+				}
+				ques := recent{collection[i].question, topres}
+				questions = append(questions, &ques)
+			}
+		}
+		log.Println(len(questions))
+		if len(questions) != 0 {
+			r.HTML(200, "indexwithrecentpolls", questions)
+		} else {
+			r.HTML(200, "index", nil)
+		}
+
 	})
 
 	m.Get("/poll/:pollNumber", func(r render.Render, params martini.Params) {

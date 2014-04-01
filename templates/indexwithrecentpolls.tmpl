@@ -21,4 +21,31 @@
 	</div>
 	<div id="right" class="recent-polls">
 		<h2 id="subtitle-recentpoll" class="subtitle">Recent Polls</h2>
+		{{range $index, $element := .}}
+		<a class="recent-poll link poll-link" href="/poll/{{$element.Q.Id}}">
+			<p class="poll-number">{{$element.Q.Id}}</p>
+			<p class="top-poll-question">{{$element.Q.Question}}</p>
+			<p class="top-answer">{{$element.Top}}</p>
+		</a>
+		{{end}}
+		<!-- <a id="poll-2" class="recent-poll link poll-link" href="#">
+			<p class="poll-number">Poll 2</p>
+			<p class="top-poll-question">Which of these languages is best?</p>
+			<p class="top-answer">Ruby</p>
+		</a>
+		<a id="poll-3" class="recent-poll link poll-link" href="#">
+			<p class="poll-number">Poll 3</p>
+			<p class="top-poll-question">What animal is the best?</p>
+			<p class="top-answer">Orangutan</p>
+		</a>
+		<a id="poll-4" class="recent-poll link poll-link" href="#">
+			<p class="poll-number">Poll 4</p>
+			<p class="top-poll-question">Who wrote 'The Hobbit'?</p>
+			<p class="top-answer">J.R.R. Tolkien</p>
+		</a>
+		<a id="poll-5" class="recent-poll link poll-link" href="#">
+			<p class="poll-number">Poll 5</p>
+			<p class="top-poll-question">In which city was Moulin Rouge set?</p>
+			<p class="top-answer">Paris</p>
+		</a> -->
 	</div>
