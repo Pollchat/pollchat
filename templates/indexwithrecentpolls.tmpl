@@ -6,7 +6,7 @@
 		<div id="hero" class="hero-unit hero-poll">
 			<div id="poll-creation" class="poll-create-options">
 				<h2 id="subtitle-createpoll" class="subtitle">Create Poll</h2>
-				<form action="/poll" method="POST">
+				<form action="/poll" method="POST" onsubmit="return(validatePollEntry());">
 					<textarea id="pollquestion" name="pollquestion" class="data-entry question-entry" placeholder="Question"></textarea>
 					<div id="pollresponses" class="poll-answers">
 						<input name="pollresponse1" class="data-entry data-entry-large" type="text" placeholder="Option 1"/>
