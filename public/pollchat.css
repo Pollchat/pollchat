@@ -207,9 +207,24 @@ li.response {
 }
 
 li.response:hover {
-	background-color: #cdc;
 	border-radius: 6px;
 	cursor: pointer;
+}
+
+li.r1:hover {
+	background-color: #4decb4;
+}
+
+li.r2:hover {
+	background-color: #ff5588;
+}
+
+li.r3:hover {
+	background-color: #605076;
+}
+
+li.r4:hover {
+	background-color: #CC0000;
 }
 
 .chat-window {

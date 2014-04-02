@@ -13,7 +13,7 @@
 			<div id="poll-options">
 				<ul class="poll-options">
 					{{range $index, $element := .Responses}}
-					<li id="pollResponse{{$index}}" class="response" onclick="showPoll({{$index}});">{{$element.Response}}</li>
+					<li id="pollResponse{{$index}}" class="response r{{$index}}" onclick="showPoll({{$index}});">{{$element.Response}}</li>
 					{{end}}
 
 				</ul>
