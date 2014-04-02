@@ -12,7 +12,7 @@ function showPoll(response) {
     // send response to server based on selected option
     var pollNumber = document.getElementById("pollNumber").innerText;
     var request = new XMLHttpRequest();
-    request.open("POST", "http://pollchat.co.uk:3000/poll/"+pollNumber+"/"+response, true);
+    request.open("POST", "http://pollchat.co.uk/poll/"+pollNumber+"/"+response, true);
     request.send();
 	var graph = document.getElementById("poll-results");
 	graph.classList.remove("hidden");
@@ -85,8 +85,8 @@ function reOrderChat() {
 
 function onPollLoad() {
     var pollNumber = document.getElementById("pollNumber").innerText;
-    conn = new WebSocket("ws://pollchat.co.uk:3000/data/"+pollNumber);
-    graphConn = new WebSocket("ws://pollchat.co.uk:3000/graph/"+pollNumber);
+    conn = new WebSocket("ws://pollchat.co.uk/data/"+pollNumber);
+    graphConn = new WebSocket("ws://pollchat.co.uk/graph/"+pollNumber);
 
     conn.onmessage = function(evt){
         appendMessageToChat(evt.data);
@@ -115,7 +115,7 @@ function drawGraph(){
         height = 500 - margin.top - margin.bottom;
 
     var color = d3.scale.ordinal()
-      .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+      .range(["#4decb4", "#ff5588", "#605076", "#CC0000"]);
 
     var x = d3.scale.ordinal()
         .rangeRoundBands([0, width], .1);
@@ -180,7 +180,7 @@ function updateGraph(res) {
         height = 500 - margin.top - margin.bottom;
 
     var color = d3.scale.ordinal()
-      .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+      .range(["#4decb4", "#ff5588", "#605076", "#CC0000"]);
 
     var x = d3.scale.ordinal()
         .rangeRoundBands([0, width], .1);

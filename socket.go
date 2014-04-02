@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/codegangsta/martini"
+	"github.com/go-martini/martini"
 	//"github.com/martini-contrib/gzip"
 	"github.com/gorilla/websocket"
 )

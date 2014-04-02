@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/codegangsta/martini"
+	"github.com/go-martini/martini"
 	//"github.com/martini-contrib/gzip"
 	"github.com/gorilla/websocket"
 )

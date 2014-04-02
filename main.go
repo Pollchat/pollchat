@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/codegangsta/martini"
+	"github.com/go-martini/martini"
 	//"github.com/martini-contrib/gzip"
 	"github.com/martini-contrib/oauth2"
 	"github.com/martini-contrib/render"
@@ -23,13 +23,16 @@ func main() {
 	}))
 	m.Use(sessions.Sessions("my_session", sessions.NewCookieStore([]byte("pollchatsecretkey"))))
 	m.Use(oauth2.Google(&oauth2.Options{
-		ClientId:     "client_id",
-		ClientSecret: "client_secret",
-		RedirectURL:  "/login",
+		ClientId:     pollchat.clientId,
+		ClientSecret: pollchat.clientSecret,
+		RedirectURL:  "http://pollchat.co.uk/oauth2callback",
 		Scopes:       []string{"https://www.googleapis.com/auth/drive"},
 	}))
 	// add an auth step here to redirect to /login if not authed
-	m.Get("/", oauth2.LoginRequired, func(r render.Render) {
+	m.Get("/", func(r render.Render, tokens oauth2.Tokens) {
+		if tokens.IsExpired() {
+			r.Redirect("/login")
+		}
 		type recent struct {
 			Q   *Question
 			Top string
