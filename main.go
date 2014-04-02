@@ -7,7 +7,9 @@ import (
 
 	"github.com/codegangsta/martini"
 	//"github.com/martini-contrib/gzip"
+	"github.com/martini-contrib/oauth2"
 	"github.com/martini-contrib/render"
+	"github.com/martini-contrib/sessions"
 )
 
 func main() {
@@ -19,8 +21,15 @@ func main() {
 		Extensions:      []string{".tmpl", ".html"},
 		HTMLContentType: "application/xhtml+xml",
 	}))
+	m.Use(sessions.Sessions("my_session", sessions.NewCookieStore([]byte("pollchatsecretkey"))))
+	m.Use(oauth2.Google(&oauth2.Options{
+		ClientId:     "client_id",
+		ClientSecret: "client_secret",
+		RedirectURL:  "/login",
+		Scopes:       []string{"https://www.googleapis.com/auth/drive"},
+	}))
 	// add an auth step here to redirect to /login if not authed
-	m.Get("/", func(r render.Render) {
+	m.Get("/", oauth2.LoginRequired, func(r render.Render) {
 		type recent struct {
 			Q   *Question
 			Top string
