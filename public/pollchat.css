@@ -13,7 +13,8 @@ body {
 	margin-left: 1em;
 	color: #7bfa9a;
 	font-family: 'Oregano', cursive;
-	font-size: 3.5em;
+	font-size: 4.5em;
+	text-decoration: none;
 }
 
 .subtitle {
@@ -317,16 +318,6 @@ li.r4:hover {
 	display: none;
 }
 
-.d3graph rect {
-	stroke: white;
-}
-
 .bar {
 
-}
-
-.y-axis, .x-axis {
-    fill: none;
-    stroke: black;
-    shape-rendering: crispEdges;
 }

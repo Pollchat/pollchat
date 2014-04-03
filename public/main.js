@@ -150,11 +150,17 @@ function drawGraph(){
 
       svg.append("g")
           .attr("class", "x-axis")
+	  .style("fill", "none")
+	  .style("stroke", "black")
+	  .style("shape-rendering", "crispEdges")
           .attr("transform", "translate(0," + height + ")")
           .call(xAxis);
 
       svg.append("g")
           .attr("class", "y-axis")
+	  .style("fill", "none")
+	  .style("stroke", "black")
+	  .style("shape-rendering", "crispEdges")
           .call(yAxis)
         .append("text")
           .attr("transform", "rotate(-90)")
@@ -167,6 +173,7 @@ function drawGraph(){
           .data(responses)
         .enter().append("rect")
           .attr("class", "bar")
+	  .style("stroke", "white")
           .attr("fill", function(d) { return color(d.response) })
           .attr("x", function(d) { return x(d.response); })
           .attr("width", x.rangeBand())
@@ -217,6 +224,7 @@ function updateGraph(res) {
         .transition()
           .duration(1000)
           .attr("class", "bar")
+	  .style("stroke", "white")
           .attr("fill", function(d) { return color(d.response) })
           .attr("x", function(d) { return x(d.response); })
           .attr("width", x.rangeBand())
@@ -227,6 +235,27 @@ function updateGraph(res) {
 function validatePollEntry(){
   // check there are at least two responses given
   if (document.getElementById("pollquestion").value.trim() == ""){
+    alert("A question must be supplied");
+    return false;
+  }
+
+  if (document.getElementById("pollres1").value.trim() == ""){
+    alert("Four responses must be supplied");
+    return false;
+  }
+
+  if (document.getElementById("pollres2").value.trim() == ""){
+    alert("Four responses must be supplied");
+    return false;
+  }
+
+  if (document.getElementById("pollres3").value.trim() == ""){
+    alert("Four responses must be supplied");
+    return false;
+  }
+
+  if (document.getElementById("pollres4").value.trim() == ""){
+    alert("Four responses must be supplied");
     return false;
   }
 
