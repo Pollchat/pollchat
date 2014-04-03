@@ -28,6 +28,7 @@ func main() {
 		RedirectURL:  "http://pollchat.co.uk/oauth2callback",
 		Scopes:       []string{"https://www.googleapis.com/auth/drive"},
 	}))
+	oauth2.PathLogin = "/oauth2login"
 	// add an auth step here to redirect to /login if not authed
 	m.Get("/", func(r render.Render, tokens oauth2.Tokens) {
 		if tokens.IsExpired() {
@@ -138,6 +139,10 @@ func main() {
 	m.Get("/data/:id", serveWebsocket)
 
 	m.Get("/graph/:id", serveGraphWs)
+
+	m.NotFound(func(r render.Render) {
+		r.HTML(200, "404", nil)
+	})
 
 	m.Run()
 }
