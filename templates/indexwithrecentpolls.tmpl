@@ -2,17 +2,17 @@
 </head>
 <body>
 	<div id="left" class="poll-input">
-		<h1 id="title" class="page-title">Pollchat</h1>
+		<a href="/" id="title" class="page-title">Pollchat</a>
 		<div id="hero" class="hero-unit hero-poll">
 			<div id="poll-creation" class="poll-create-options">
 				<h2 id="subtitle-createpoll" class="subtitle">Create Poll</h2>
 				<form action="/poll" method="POST" onsubmit="return(validatePollEntry());">
 					<textarea id="pollquestion" name="pollquestion" class="data-entry question-entry" placeholder="Question"></textarea>
 					<div id="pollresponses" class="poll-answers">
-						<input name="pollresponse1" class="data-entry data-entry-large" type="text" placeholder="Option 1"/>
-						<input name="pollresponse2" class="data-entry data-entry-large" type="text" placeholder="Option 2"/>
-						<input name="pollresponse3" class="data-entry data-entry-large" type="text" placeholder="Option 3"/>
-						<input name="pollresponse4" class="data-entry data-entry-large" type="text" placeholder="Option 4"/>
+						<input id="pollres1" name="pollresponse1" class="data-entry data-entry-large" type="text" placeholder="Option 1"/>
+						<input id="pollres2" name="pollresponse2" class="data-entry data-entry-large" type="text" placeholder="Option 2"/>
+						<input id="pollres3" name="pollresponse3" class="data-entry data-entry-large" type="text" placeholder="Option 3"/>
+						<input id="pollres4" name="pollresponse4" class="data-entry data-entry-large" type="text" placeholder="Option 4"/>
 						<button class="btn-custom btn-create">Submit</button>
 					</div>
 				</form>
