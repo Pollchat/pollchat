@@ -1,6 +1,7 @@
 var conn;
 var graphConn;
 var nickname;
+var voteCount = 0;
 
 
 function hidePoll() {
@@ -10,7 +11,12 @@ function hidePoll() {
 
 function showPoll(response) {
     // send response to server based on selected option
-    var pollNumber = document.getElementById("pollNumber").innerText;
+    if(voteCount > 5)
+    {
+	return;
+    }
+    voteCount++;
+    var pollNumber = document.getElementById("pollNumber").textContent;
     var request = new XMLHttpRequest();
     request.open("POST", "http://pollchat.co.uk/poll/"+pollNumber+"/"+response, true);
     request.send();
@@ -60,8 +66,8 @@ function appendMessageToChat(message) {
 
     var comment = JSON.parse(message);
     
-    userName.innerText = comment.name;
-    userComment.innerText = comment.message;
+    userName.textContent = comment.name;
+    userComment.textContent = comment.message;
     
     reOrderChat();
 
@@ -84,7 +90,7 @@ function reOrderChat() {
 }
 
 function onPollLoad() {
-    var pollNumber = document.getElementById("pollNumber").innerText;
+    var pollNumber = document.getElementById("pollNumber").textContent;
     conn = new WebSocket("ws://pollchat.co.uk/data/"+pollNumber);
     graphConn = new WebSocket("ws://pollchat.co.uk/graph/"+pollNumber);
 
